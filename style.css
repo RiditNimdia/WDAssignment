@@ -180,11 +180,20 @@ a:focus-visible, .btn:focus-visible {
     border-radius: 3px; /* Added for focus style */
 }
 
-#main-content a:hover {
+#main-content a:not(.btn):hover {
     color: var(--color-accent-hover);
     text-decoration: underline;
 }
 
+/* B. bump button‑hover specificity so it beats #main-content a:hover */
+#main-content .btn:hover {
+  background-color: var(--color-accent-hover); /* you can even pull in your .btn:hover styles here */
+  border-color: var(--color-accent-hover);
+  color: var(--color-white);    /* 👈 force white text */
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
 
 /* --- Section Styling --- */
 section {
